@@ -14,5 +14,14 @@
             "email": "farhadkarami@yahoo.com"
         }
     ],
-    "require": {}
+    "require": {
+        "illuminate/support": "^12.41"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "FaradTech\\LaravelAutoShield\\LaravelAutoShieldServiceProvider"
+            ]
+        }
+    }
 }
