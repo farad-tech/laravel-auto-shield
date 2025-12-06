@@ -11,6 +11,7 @@ class LaravelAutoShieldServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        $this->loadHelpers();
     }
 
     /**
@@ -21,5 +22,17 @@ class LaravelAutoShieldServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__.'/../config/laravelautoshield.php' => config_path('autoshield.php'),
         ]);
+    }
+
+    /**
+     * Load Laravel Auto Shield Helpers
+     * @return void
+     */
+    public function loadHelpers(): void
+    {
+        $helpers = __DIR__ . '/Helpers/laravelautoshield.php';
+        if (file_exists($helpers)) {
+            require_once $helpers;
+        }
     }
 }
