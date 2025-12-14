@@ -20,8 +20,12 @@ class LaravelAutoShieldServiceProvider extends ServiceProvider
     public function boot(): void
     {    
         $this->publishes([
-            __DIR__.'/../config/laravelautoshield.php' => config_path('autoshield.php'),
+            __DIR__.'/../config/laravelautoshield.php' => config_path('laravelautoshield.php'),
         ]);
+
+        $this->publishes([
+            __DIR__.'/../database/migrations/' => database_path('migrations'),
+        ], 'laravel-auto-shield-migrations');
     }
 
     /**
