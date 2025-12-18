@@ -12,6 +12,6 @@ class AutoShieldRequest extends Model
         'first_piece',
         'ip_version',
         'user_agent',
-        'day_timetamp',
+        'day_timestamp',
     ];
 }

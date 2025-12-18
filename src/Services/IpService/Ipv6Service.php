@@ -1,13 +1,13 @@
 <?php
 
-namespace Src\Services\IpService;
+namespace FaradTech\LaravelAutoShield\Services\IpService;
 
 use FaradTech\LaravelAutoShield\Models\AutoShieldRequest;
 
 class Ipv6Service implements IpService
 {
 
-    protected function firstPiece(string $ip): string
+    public function firstPiece(string $ip): string
     {
         return explode(':', $ip)[0];
     }

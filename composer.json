@@ -5,7 +5,8 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "FaradTech\\LaravelAutoShield\\": "src/"
+            "FaradTech\\LaravelAutoShield\\": "src/",
+            "Tests\\": "tests/"
         }
     },
     "authors": [
@@ -25,15 +26,15 @@
             ]
         }
     },
-    "require-dev": {
-        "orchestra/testbench": "^10.8"
-    },
     "autoload-dev": {
         "psr-4": {
             "Workbench\\App\\": "workbench/app/",
             "Workbench\\Database\\Factories\\": "workbench/database/factories/",
             "Workbench\\Database\\Seeders\\": "workbench/database/seeders/"
         }
+    },
+    "require-dev": {
+        "orchestra/testbench": "^10.8"
     },
     "scripts": {
         "post-autoload-dump": [
@@ -47,6 +48,10 @@
             "Composer\\Config::disableProcessTimeout",
             "@build",
             "@php vendor/bin/testbench serve --ansi"
+        ],
+        "test": [
+            "@clear",
+            "@php vendor/bin/phpunit"
         ]
     }
 }
