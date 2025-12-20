@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Middleware;
+namespace FaradTech\LaravelAutoShield\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use Src\Services\IpService\Ipv4Service;
-use Src\Services\IpService\Ipv6Service;
+use FaradTech\LaravelAutoShield\Services\IpService\Ipv4Service;
+use FaradTech\LaravelAutoShield\Services\IpService\Ipv6Service;
 use Symfony\Component\HttpFoundation\Response;
 
 class AutoShieldMiddleware

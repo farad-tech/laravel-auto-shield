@@ -2,8 +2,10 @@
 
 namespace Tests;
 
+use FaradTech\LaravelAutoShield\Http\Middleware\AutoShieldMiddleware;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Support\Facades\Route;
 use Orchestra\Testbench\Concerns\WithWorkbench;
 use PDO;
 use function Orchestra\Testbench\workbench_path;
@@ -21,7 +23,7 @@ class TestCase extends \Orchestra\Testbench\TestCase
     protected function getPackageProviders($app) 
     {
         return [
-            'FaradTech\LaravelAutoShield\LaravelAutoShieldServiceProvider',
+            \FaradTech\LaravelAutoShield\LaravelAutoShieldServiceProvider::class,
         ];
     }
 
@@ -67,6 +69,8 @@ class TestCase extends \Orchestra\Testbench\TestCase
             ]);
             
             $config->set('database.default', 'testbench');
+
+            $config->set('laravelautoshield.enabled', true);
         });
     }
 
@@ -80,5 +84,17 @@ class TestCase extends \Orchestra\Testbench\TestCase
         $this->loadMigrationsFrom(
             workbench_path('../src/database/migrations')
         );
+    }
+
+    /**
+     * Define routes setup.
+     *
+     * @param  \Illuminate\Routing\Router  $router
+     * @return void
+     */
+    protected function defineRoutes($router) 
+    {
+        Route::get('/test-auto-shield')
+            ->middleware(AutoShieldMiddleware::class);
     }
 }
