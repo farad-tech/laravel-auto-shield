@@ -18,7 +18,7 @@ class Ipv6Service implements IpService
             'ip' => $ip,
             'first_piece' => $this->firstPiece($ip),
             'ip_version' => 6,
-            'day_timetamp' => autoShieldTodaySeconds(),
+            'day_timestamp' => autoShieldTodaySeconds(),
         ]);
     }
 
