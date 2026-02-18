@@ -12,7 +12,6 @@ class RequestsRatioServiceTest extends TestCase
 
     public function test_previous_requests_counts_is_zero(): void
     {
-        config()->set('laravelautoshield.period_range', 60);
 
         $requestRatioService = new RequestsRatioService();
         $count = $requestRatioService->previousPeriodRecords();
@@ -22,7 +21,6 @@ class RequestsRatioServiceTest extends TestCase
 
     public function test_current_requests_counts_is_one(): void
     {
-        config()->set('laravelautoshield.period_range', 60);
 
         $ipv4Service = new Ipv4Service();
         $ipv4Service->save(fake()->ipv4());
@@ -35,7 +33,6 @@ class RequestsRatioServiceTest extends TestCase
 
     public function test_current_requests_counts_is_zero(): void
     {
-        config()->set('laravelautoshield.period_range', 60);
 
         $requestRatioService = new RequestsRatioService();
         $count = $requestRatioService->currentPeriodRecords();

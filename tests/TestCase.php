@@ -69,8 +69,9 @@ class TestCase extends \Orchestra\Testbench\TestCase
             ]);
             
             $config->set('database.default', 'testbench');
-
             $config->set('laravelautoshield.enabled', true);
+            $config->set('laravelautoshield.period_range', 60);
+            
         });
     }
 
