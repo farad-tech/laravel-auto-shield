@@ -34,7 +34,7 @@ class LaravelAutoShieldServiceProvider extends ServiceProvider
      */
     public function loadHelpers(): void
     {
-        $helpers = __DIR__ . '/Helpers/laravelautoshield.php';
+        $helpers = __DIR__ . '/Helpers/laravelautoshieldhelper.php';
         if (file_exists($helpers)) {
             require_once $helpers;
         }
