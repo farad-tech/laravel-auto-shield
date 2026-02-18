@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Feature\Middlewares;
+namespace Tests\Feature\Middleware;
 
 use FaradTech\LaravelAutoShield\Models\AutoShieldRequest;
 use Tests\TestCase;
